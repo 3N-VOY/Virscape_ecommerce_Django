@@ -41,8 +41,8 @@ envname\scripts\activate
  ```bash
 pip install -r requirements.txt
 ```
-5# Running the App
-To run the App:
+5# Run the App
+
  ```bash
 python manage.py runserver
 ```
