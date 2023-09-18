@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<br>
+<div class="bg-gray-100 py-12 rounded-lg ">
+    <div class="container mx-auto ">
+        <h1 class="text-3xl font-semibold text-gray-800 mb-8">Shop by Categories</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {% for category in categories %}
+            <a href="{% url 'category_view' category.slug %}" class="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ease-in-out">
+                <div class="h-56 overflow-hidden group-hover:opacity-90">
+                    <img src="{{ category.get_image }}" alt="Image of {{ category.title }}" class="w-full h-full object-cover">
+                </div>
+                <div class="py-4 px-6">
+                    <p class="text-xl font-semibold text-gray-800 group-hover:text-blue-600 transition duration-300 ease-in-out">{{ category.title }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="bg-gray-100 rounded-lg py-12">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-4 ">New In</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {% for item in newest_items %}
+            <a href="{% url 'view_item' item.category.slug item.slug %}" class="group bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition duration-300 ease-in-out">
+                <div class="h-56 overflow-hidden">
+                    <img src="{{ item.get_image }}" alt="Image of {{ item.title }}" class="w-full h-full object-cover">
+                </div>
+                <div class="py-4 px-6">
+                    <p class="text-xl font-semibold text-gray-800 group-hover:text-blue-600 transition duration-300 ease-in-out">{{ item.title }}</p>
+                    <p class="text-gray-600">Price: ${{ item.price }}</p>
+                    
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+</div>
+<br>
+
+
+{% endblock content %}

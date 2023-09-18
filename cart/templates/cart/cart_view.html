@@ -1,0 +1,50 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+Cart
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto mt-8 px-4">
+    <h1 class="text-3xl font-semibold mb-6">Cart</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {% for item in items %}
+        <div class="bg-white shadow-lg rounded-lg p-4 flex items-center">
+            <div class="w-24 md:w-32">
+                <img src="{{ item.product.get_image }}" class="w-full" alt="{{ item.product.title }}">
+            </div>
+
+            <div class="pl-4 flex-grow">
+                <h2 class="text-xl md:text-2xl">{{ item.product.title }}</h2>
+                <p class="text-gray-600 text-sm mt-2">Price: €{{ item.product.price|floatformat:2 }}</p>
+
+                <div class="mt-2 flex items-center">
+                    <button data-product="{{ item.product.id }}" data-action="add" class="p-2 bg-sky-800 text-white rounded hover:bg-sky-900 update-cart">+</button>
+                    <p class="mx-3">{{ item.quantity }}</p>
+                    <button data-product="{{ item.product.id }}" data-action="remove" class="p-2 bg-sky-800 text-white rounded hover:bg-sky-900 update-cart">-</button>
+                </div>
+
+                <button data-product="{{ item.product.id }}" data-action="trash" class="update-cart mt-2 text-red-600 hover:text-red-800">
+                    Remove
+                </button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <hr class="my-6">
+
+    <div class="text-xl">
+        <p><strong>Total cost:</strong> €{{ order.get_cart_total|floatformat:2 }}</p>
+        <p><strong>Items:</strong> {{ order.get_cart_items }}</p>
+    </div>
+
+    <hr class="my-6">
+
+    <a href="{% url 'checkout' %}" class="inline-block px-6 py-3 bg-sky-800 text-white rounded hover:bg-sky-900">
+        Proceed to Checkout
+    </a>
+</div>
+
+{% endblock %}

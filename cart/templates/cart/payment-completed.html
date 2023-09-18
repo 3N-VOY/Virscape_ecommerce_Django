@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container mx-auto mt-8 px-4">
+    <div class="bg-white shadow-lg rounded-lg p-8">
+        <h1 class="text-3xl font-semibold mb-6">Payment Successful</h1>
+        <p class="text-gray-700 leading-7">
+            Thank you for your order! Your payment has been successfully processed.
+        </p>
+        <p class="text-gray-700 leading-7 mt-4">
+            You will receive an email confirmation shortly with the details of your purchase. If you have any questions or need further assistance, please feel free to contact our customer support email:
+            
+        </p>
+        <br>
+            <div class="flex items-center mt-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg><h1 class="mx-2">virscape@support.com</h1>
+            </div>
+        <br>
+        <p class="text-gray-700 leading-7 mt-4">
+            We appreciate your business and look forward to serving you again in the future.
+        </p>
+    </div>
+</div>
+
+{% endblock %}
