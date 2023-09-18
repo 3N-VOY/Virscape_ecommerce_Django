@@ -46,6 +46,6 @@ To run the App:
  ```bash
 python manage.py runserver
 ```
-The dev
+
 > The development server will run at: http://127.0.0.1:8000/
 
