@@ -41,7 +41,18 @@ envname\scripts\activate
  ```bash
 pip install -r requirements.txt
 ```
-5# Run the App
+#5 Replace STRIPE API Keys in settings.py:
+ ```bash
+STRIPE_PUB_KEY = 'INCLUDE YOUR KEY HERE'
+
+STRIPE_PRIVATE_KEY = 'INCLUDE YOUR PRIVATE KEY HERE'
+```
+#6 Replace Stripe Key in cart/templates/checkout.html:
+ ```bash
+ var stripe = Stripe('INCLUDE YOUR KEY HERE');
+```
+
+#7 Run the App
 
  ```bash
 python manage.py runserver
